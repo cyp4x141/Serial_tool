@@ -11,8 +11,12 @@
 ```
 $ ./SerialSend ${Port} ${Baudrate} ${Sendmode} ${Message} $[Looptime]
 ```
-${Port} :/dev/ttyUSB0 /dev/ttyS1 ...
-${Baudrate} :4800 9600 ...
-${Sendmode} :ascii or hex
-${Message} :string or Hex byte
-$[Looptime]: default once , ms
+```
+$ ./SerialSend /dev/ttyUSB0 9600 hex AAFF01 1000
+```
+send 0xAA 0xFF 0x01 9600 baudrate at port /dev/ttyUSB0 every 1000ms  
+${Port} :/dev/ttyUSB0 /dev/ttyS1 ...  
+${Baudrate} :4800 9600 ...  
+${Sendmode} :ascii or hex  
+${Message} :string or Hex byte  
+$[Looptime]: default once , ms  

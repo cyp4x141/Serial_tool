@@ -20,8 +20,8 @@ int main(int argc, char **argv)
 {
   SerialTool serialtool;
   //param check & serial port config
-  serialtool.paramCheck(argc, argv);
-  int sendmode = serialtool.printConfig(argv);
+  serialtool.ParamCheck(argc, argv);
+  int sendmode = serialtool.PrintConfig(argv);
 
   if (argc == 6)
   {
@@ -30,10 +30,10 @@ int main(int argc, char **argv)
     {
       if (sendmode == 1)
       {
-        serialtool.sendAscii(argv);
+        serialtool.SendAscii(argv);
       }
       if (sendmode == 2)
-      serialtool.sendHex(argv);
+      serialtool.SendHex(argv);
       usleep(looptime*1000);
     }
   }
@@ -41,11 +41,11 @@ int main(int argc, char **argv)
  {
     if (sendmode == 1)
       {
-        serialtool.sendAscii(argv);
+        serialtool.SendAscii(argv);
       }
       if (sendmode == 2)
       {
-        serialtool.sendHex(argv);
+        serialtool.SendHex(argv);
       }
  }
   return 0;

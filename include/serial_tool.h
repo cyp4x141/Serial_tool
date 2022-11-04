@@ -14,7 +14,7 @@ class SerialTool
 {
 public:
 
-void paramCheck(int param_num, char** config)
+void ParamCheck(int param_num, char** config)
 {
   //param check
   if (param_num < 5)
@@ -76,7 +76,7 @@ void paramCheck(int param_num, char** config)
   }
 }
 
-int printConfig(char** config)
+int PrintConfig(char** config)
 { 
   //param print
   std::cout << "port is: " << config[1] << std::endl;
@@ -97,7 +97,7 @@ int printConfig(char** config)
       printf("Send mode is: HEX\n");
       printf("Hex Message length is: %d\n", strlen(config[4])/2);
       std::cout << "Hex Message is: ";
-      vector<uint8_t> hexprint = charToHex(config);
+      vector<uint8_t> hexprint = CharToHex(config);
       for (size_t i = 0; i < hexprint.size(); i++)
       {
         printf("0x%02x ",hexprint[i]);
@@ -108,7 +108,7 @@ int printConfig(char** config)
   }
 }
 
-void sendAscii(char** config)
+void SendAscii(char** config)
 {
   uint8_t asc_payload[strlen(config[4])];
   for (size_t i = 0; i < strlen(config[4]); i++)
@@ -127,7 +127,7 @@ void sendAscii(char** config)
   printf("Serial Port Open Failed!");
 }
 
-vector<uint8_t> charToHex(char** config)
+vector<uint8_t> CharToHex(char** config)
 {
   vector<uint8_t> hex_payload;
   uint8_t int_payload[strlen(config[4])];
@@ -153,9 +153,9 @@ vector<uint8_t> charToHex(char** config)
   return hex_payload;
 }
 
-void sendHex(char** config)
+void SendHex(char** config)
 { 
-  vector<uint8_t> hextosend =charToHex(config);
+  vector<uint8_t> hextosend = CharToHex(config);
   uint8_t hex_payload[hextosend.size()];
   for (size_t i = 0; i < hextosend.size(); i++)
   {
@@ -176,7 +176,7 @@ void sendHex(char** config)
   printf("Serial Port Open Failed!");
 }
 
-string binaryToHex(const string& binaryStr)
+string BinaryToHex(const string& binaryStr)
 {
     string ret;
     static const char *hex = "0123456789ABCDEF";
